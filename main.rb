@@ -1,7 +1,6 @@
 require 'pry'
 require './game'
 require './player'
-require './filters'
 
 players = [
     Player.new("Player 1"),

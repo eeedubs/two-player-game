@@ -91,6 +91,7 @@ class Game
         puts "Would you like to play again? Type 'yes' or 'no':"
         answer = gets.chomp
         if answer == "yes"
+            puts "\n\n\n"
             game = Game.new(@players)
             game.play_game
         elsif answer =="no"
