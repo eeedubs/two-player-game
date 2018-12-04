@@ -92,7 +92,11 @@ class Game
         answer = gets.chomp
         if answer == "yes"
             puts "\n\n\n"
-            game = Game.new(@players)
+            new_players = [
+                player1 = Player.new("Player 1"),
+                player2 = Player.new("Player 2")
+            ]
+            game = Game.new(new_players)
             game.play_game
         elsif answer =="no"
             puts "Good Bye!"
