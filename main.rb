@@ -1,6 +1,6 @@
 require 'pry'
-require './game'
 require './player'
+require './game'
 
 players = [
     Player.new("Player 1"),

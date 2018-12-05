@@ -23,6 +23,9 @@
 class Game
     attr_accessor :current_user
 
+    ## Called when Game.new(players) is assigned to a variable (creates the game)
+    ## assigns the starting user to a random player, either p1 or p2
+    ## outputs the starting message
     def initialize(playersArray)
         @players = playersArray
         start_user = rand(0..1)
@@ -33,6 +36,11 @@ class Game
     @@new_turn_alert = "----- NEW TURN -----"
     @@game_over_alert = "----- GAME OVER -----"
 
+    ## Asks the questions
+    ## Takes x and y as random integers between 1 and 20, and records the sum of those two numbers
+    ## Asks the user for their guess, and records that guess
+    ## Records the true or false value of the answer
+    ## Passes the true/false value to the handle_guess(input) method
     def play_game
         x = rand(1..20)
         y = rand(1..20)
@@ -43,8 +51,8 @@ class Game
         handle_guess(trueOrFalse)
     end
 
-    # If the input is false, alert failure and make the player lose a life
-    # Else if the input is true, alert success and switch users
+    # If the input is false, alert failure and invoke the lose_life(user) method
+    # Else if the input is true, alert success, switch users, alert with a new round variable, and play the game again
     def handle_guess(input)
         if input == false
             puts "#{@current_user.name}: Seriously? No!"
@@ -87,6 +95,11 @@ class Game
         end
     end
 
+    ## Invoked once the game ends
+    ## Asks the user if they would like to play again
+    ## if yes, assign new players (with 3 lives) and run the game again with the new players
+    ## if no, say goodbye with an empty line
+    ## else (if the input isn't yes or no), repeat the play_again? method
     def play_again?
         puts "Would you like to play again? Type 'yes' or 'no':"
         answer = gets.chomp
